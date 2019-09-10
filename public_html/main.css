@@ -17,11 +17,11 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
-  color: #8eb2b1;
-  background-color: #282c34;
+  background-color: #000000;
   height: 100%;
   font-size: 16px;
   font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
+  overflow: hidden;
 }
 
 a, a:visited {
@@ -36,10 +36,22 @@ div, ol {
   box-sizing: border-box;
 }
 
-ol {
+/* Atom Theme */
+.atom-theme {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: -100vw;
   width: 100%;
+  min-height: 100vh;
   padding: 0.6rem 0 0 2.8rem;
   counter-reset: item;
+  color: #8eb2b1;
+  background-color: #282c34;
+  transition: 500ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+.atom-theme.active {
+  right: 0;
 }
 
 li {
@@ -54,7 +66,7 @@ li:hover {
   background-color: #2c323c;
 }
 
-li:before {
+.atom-theme li:before {
   content: counters(item, "") " ";
   display: inline-block;
   position: absolute;
@@ -82,4 +94,91 @@ li span {
 
 li i {
   color: #98b954;
+}
+
+/* Dos Theme */
+.dos-theme {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  top: 0;
+  padding: 0.5rem 0.75rem;
+}
+.dos-theme li:hover {
+  background-color: transparent;
+}
+
+/* Theme Switch */
+.theme-switch {
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 4.5rem;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+  text-align: right;
+  background-color: #333842;
+  transition: 500ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+.theme-switch.hidden {
+  right: -100vw;
+}
+
+.button {
+  display: inline-block;
+  height: 1.5rem;
+  padding: 0.5rem 1.25rem;
+  color: #fff;
+  background-color: #528bff;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.25s linear; 
+}
+.button:hover {
+  color: #fff;
+  background-color: #4776d7;
+}
+
+/* Nice Theme */
+.nice-theme {
+  position: absolute;
+  z-index: 4;
+  width: 100vw;
+  min-height: 100vh;
+  top: 0;
+  left: -100vw;
+  background-color: #fafafa;
+  transition: 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition-delay: 500ms;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.nice-theme.active {
+  left: 0;
+}
+
+.nice-container {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.nice-theme article {
+  padding: 2rem 0 0;
+}
+
+.nice-theme h1 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+.nice-about-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  padding-top: 0.25rem;
+  color: #444;
 }
